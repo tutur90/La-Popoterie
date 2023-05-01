@@ -1,11 +1,10 @@
-
-
 import { Text, View } from '../../components/Themed';
 import { RootTabScreenProps } from '../../types';
 import { StyleSheet, ScrollView } from 'react-native';
 
-import { RecipeList } from '../../components/Display';
+import { RecipeList } from '../../components/home/RecipesList';
 import { useRecipesContext } from '../../api/Context';
+import Colors from '../../constants/Colors';
 
 
 const HomeScreen = ({ navigation }: RootTabScreenProps<'Home'>) => {
@@ -16,9 +15,10 @@ const HomeScreen = ({ navigation }: RootTabScreenProps<'Home'>) => {
   const novelty = recipes.sort((a, b) => b.date - a.date).slice(0, 5)
 
   return (
-    <View >
+    <View style={styles.container} >
       <ScrollView>
-        <Text style={styles.headerText}>La Popoterie</Text>
+        <Text style={styles.title}>La Popoterie</Text>
+        <Text style={styles.subTitle}>vous propose...</Text>
         <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
         <View >
           <Text style={styles.categoryTitle}>Tendance</Text>
@@ -37,34 +37,33 @@ const HomeScreen = ({ navigation }: RootTabScreenProps<'Home'>) => {
 export default HomeScreen;
 
 const styles = StyleSheet.create({
-  container1: {
+  container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'white'
-
   },
-  scrollView: {
-    backgroundColor: 'pink',
-    marginHorizontal: 20,
-  },
-  headerText: {
-    fontFamily: 'space-mono',
+  title: { //pour le titre
+    fontFamily: 'Butler',
     fontSize: 50,
-    //marginTop: StatusBar.currentHeight,
+    marginLeft: 50,
+    color: Colors.darkGreen,
+    alignItems: 'center',
+    marginTop: 40,
   },
-  categoryTitle: {
-    fontSize: 40,
+  subTitle: { //pour le "vous propose"
+    fontFamily: 'Garet',
+    fontSize: 27,
+    marginLeft: 90,
+  },
+  categoryTitle: { //pour le titre des catégories
+    fontSize: 30,
     marginLeft: 20,
-    textTransform: 'capitalize'
+    fontFamily: 'Cabin',
   },
   separator: {
     marginVertical: 30,
     height: 2,
-  },
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    width: '80%',
+    alignSelf: 'center',
   },
 });

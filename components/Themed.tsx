@@ -3,7 +3,7 @@
  * https://docs.expo.io/guides/color-schemes/
  */
 
-import { Text as DefaultText, View as DefaultView, TextInput as DefaultTextInput } from 'react-native';
+import { Text as DefaultText, View as DefaultView, TextInput as DefaultTextInput, TouchableOpacity } from 'react-native';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
@@ -51,4 +51,3 @@ export function TextInput(props: TextInputProps) {
 
   return <DefaultTextInput style={[{ color }, style]} placeholderTextColor='grey'  {...otherProps} />;
 }
-

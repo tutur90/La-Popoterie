@@ -1,20 +1,34 @@
-import { StyleSheet } from 'react-native';
+import { Button, StyleSheet, TouchableOpacity } from 'react-native';
+
+import * as React from 'react';
 
 import { Text, View } from '../../components/Themed';
-import { RootStackScreenProps, RootTabScreenProps } from '../../types';
+import { RootStackScreenProps } from '../../types';
 
 import { GoogleConnection, LoginAnymously, } from '../../components/Connection';
+import { googleConnection, loginAnymously } from '../../api/Auth';
 
 export default function LoginScreen({ navigation }: RootStackScreenProps<'Login'>) {
+  const [buttonDisabled, setButtonDisabled] = React.useState(false);
+
+  const signInWithGoogleAsync = googleConnection(setButtonDisabled);
 
   return (
     <View style={styles.container}>
-
       <Text style={styles.title}>Compte google</Text>
-      <GoogleConnection />
+      <Button title="Login Google" onPress={() => {
+        signInWithGoogleAsync();
+      }}
+        disabled={buttonDisabled} />
       <Text>Ou</Text>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
+        <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold' }}>Bienvenue!</Text>
+      </TouchableOpacity>
       <Text style={styles.text}>Utiliser sans compte:</Text>
-      <LoginAnymously />
+      <Button title="Ann" onPress={() => {
+        loginAnymously(setButtonDisabled);
+      }}
+        disabled={buttonDisabled} />
     </View>
   );
 }
@@ -42,5 +56,13 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     position: 'relative',
     color: 'red',
+  },
+  button: {
+    paddingHorizontal: 20,
+    paddingVertical: 8,
+    backgroundColor: '#2D6A4F',
+    borderRadius: 10,
+    marginTop: 20,
+    elevation: 5,
   },
 });

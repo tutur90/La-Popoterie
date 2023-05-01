@@ -2,8 +2,8 @@
 import { useState } from 'react';
 import { StyleSheet, } from 'react-native';
 import { useRecipesContext } from '../../api/Context';
-import SearchList from '../../components/SearchList';
-import { Text, View, TextInput } from '../../components/Themed'
+import SearchList from '../../components/search/SearchList';
+import { View, TextInput } from '../../components/Themed'
 import { RootTabScreenProps } from '../../types';
 
 const SearchScreen = ({ navigation }: RootTabScreenProps<'Search'>) => {
@@ -36,15 +36,15 @@ const styles = StyleSheet.create({
     container: {
         alignItem: 'center',
         padding: 10,
-        paddingBottom: 10
+        paddingBottom: 10,
+        backgroundColor: 'white',
+        height: '100%',
     },
     image: {
         height: 60,
         width: 60,
         borderRadius: 25,
         borderWidth: 0.5,
-
-
     },
     text: {
         fontSize: 15,

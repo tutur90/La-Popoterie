@@ -4,13 +4,12 @@
     "slug": "La-Popoterie",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/iconn.png",
+    "icon": "./assets/images/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "splash": {
-      "image": "./assets/images/splashhh.png",
-      "resizeMode": "contain",
-      "backgroundColor": "transparent"
+      "image": "./assets/images/splash.png",
+      "resizeMode": "cover"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -23,7 +22,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-iconn.png",
+        "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       }
     },

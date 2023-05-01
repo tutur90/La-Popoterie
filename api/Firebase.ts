@@ -6,8 +6,6 @@ import { useAuthContext } from './Context';
 import { firebaseConfig } from '../.env/config';
 
 
-
-
 const app = initializeApp(firebaseConfig);
 
 export const auth = initializeAuth(app, { persistence: getReactNativePersistence(AsyncStorage) });

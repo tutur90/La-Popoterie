@@ -18,7 +18,9 @@ export default function useCachedResources() {
         // Load fonts
         await Font.loadAsync({
           ...AntDesign.font,
-          'space-mono': require('../assets/fonts/SpaceMono-Regular.ttf'),
+          'Butler': require('../assets/fonts/Butler.ttf'),
+          'Garet': require('../assets/fonts/Garet.ttf'),
+          'Cabin': require('../assets/fonts/Cabin.ttf'),
         });
 
         await new Promise((resolve) => {

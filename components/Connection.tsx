@@ -15,7 +15,6 @@ export const GoogleConnection = () => {
     );
 
     React.useEffect(() => {
-
         if (response?.type === 'success') {
             const { id_token } = response.params;
             const credential = GoogleAuthProvider.credential(id_token);
@@ -31,7 +30,6 @@ export const GoogleConnection = () => {
         }}
     />)
 }
-
 
 
 export const LoginAnymously = () => {
