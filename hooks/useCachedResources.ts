@@ -23,6 +23,7 @@ export default function useCachedResources() {
           'Cabin': require('../assets/fonts/Cabin.ttf'),
         });
 
+
         await new Promise((resolve) => {
           if (userIsLoaded) {
             resolve(true)

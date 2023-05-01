@@ -2,7 +2,6 @@ import { getReactNativePersistence, initializeAuth, onAuthStateChanged } from 'f
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import { useAuthContext } from './Context';
 import { firebaseConfig } from '../.env/config';
 
 

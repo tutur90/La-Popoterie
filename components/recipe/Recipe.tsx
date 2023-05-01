@@ -6,7 +6,6 @@ import { Comment, ingredient } from "../../types";
 import { useAuthContext, useRecipesContext } from "../../api/Context";
 
 
-
 export const Steps = (props: { steps: any[] }) => {
 
     const { steps } = props;
