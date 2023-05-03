@@ -4,7 +4,7 @@ import { StyleSheet, Image } from "react-native";
 import Colors from "../../constants/Colors";
 
 
-export const Ingredients = (props: { ingredients: any[], personsNumber: number }) => {
+const Ingredients = (props: { ingredients: any[], personsNumber: number }) => {
     const { ingredients, personsNumber } = props;
     var cost: number = 0;
 
@@ -14,7 +14,7 @@ export const Ingredients = (props: { ingredients: any[], personsNumber: number }
                 const quantity = ingredient.quantity * personsNumber;
                 cost += ingredient.cost * personsNumber;
                 return (<View style={styles.ingrCell} key={index}>
-                    <IngrImage image_path={ingredient.image_path} />
+                    <IngrImage imagePath={ingredient.imagePath} />
                     <View style={{ backgroundColor: 'transparent', flexShrink: 1 }}>
                         <Text style={styles.textCap}>{ingredient.name + ' :'}</Text>
                         <IngrQuantity quantity={quantity} unit={ingredient.unit} />
@@ -25,13 +25,14 @@ export const Ingredients = (props: { ingredients: any[], personsNumber: number }
     );
 }
 
+export default Ingredients;
 
-const IngrImage = (props: { image_path: string | undefined }) => {
+const IngrImage = (props: { imagePath: string | undefined }) => {
     const size = 50;
-    const { image_path } = props;
-    if (image_path) {
+    const { imagePath } = props;
+    if (imagePath) {
         return <Image
-            source={{ uri: image_path }}
+            source={{ uri: imagePath }}
             style={{ width: size, height: size, marginVertical: 5 }}
         />
     } else {

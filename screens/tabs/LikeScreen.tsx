@@ -1,6 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { Button, StyleSheet, TouchableOpacity } from 'react-native';
-import { useAuthContext, useRecipesContext } from '../../api/Context';
+import { useRecipesContext } from '../../api/RecipeContext';
+import { useAuthContext } from '../../api/AuthContext';
 
 import LikeList from '../../components/like/LikeList';
 import { Text, View } from '../../components/Themed';

@@ -3,7 +3,7 @@ import * as WebBrowser from 'expo-web-browser';
 import * as Google from 'expo-auth-session/providers/google';
 import { GoogleAuthProvider, signInWithCredential, signInAnonymously } from 'firebase/auth';
 import { Button } from "react-native";
-import { auth } from '../api/Firebase';
+import { auth } from './Firebase';
 import clientId from '../.env/GoogleAuth';
 
 WebBrowser.maybeCompleteAuthSession();

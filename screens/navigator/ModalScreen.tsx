@@ -6,7 +6,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { GoogleConnection } from '../../components/Connection';
 import { Text, View } from '../../components/Themed';
 import Sizes from '../../constants/Sizes'
-import { useAuthContext } from '../../api/Context';
+import { useAuthContext } from '../../api/AuthContext';
 
 export default function ModalScreen() {
   const { user, userIsLoaded, setUser } = useAuthContext();

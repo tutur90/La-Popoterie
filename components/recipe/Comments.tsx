@@ -1,9 +1,11 @@
 import { TouchableOpacity, StyleSheet } from "react-native";
 import { TextInput, View, Text } from "../Themed";
 import { AntDesign } from "@expo/vector-icons";
-import { useAuthContext, useRecipesContext } from "../../api/Context";
+import { useRecipesContext } from "../../api/RecipeContext";
+import { useAuthContext } from "../../api/AuthContext";
 import { useState } from "react";
 import { Comment } from "../../types";
+import Colors from "../../constants/Colors";
 
 
 const DispComments = (props: { comment: Comment }) => {
@@ -12,7 +14,7 @@ const DispComments = (props: { comment: Comment }) => {
         new Date(date).toLocaleDateString('fr-FR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })
     return (
         <>
-            <View style={{ padding: 10, borderRadius: 20, marginTop: 10 }}>
+            <View style={styles.textView}>
                 <Text>{text}</Text>
             </View>
             <Text style={{ textAlign: 'right' }}>{dateFr}</Text>
@@ -66,23 +68,25 @@ const Comments = (props: { comments: Comment[], id: string }) => {
     )
 }
 
+export default Comments;
+
 const styles = StyleSheet.create({
 
     input: {
         fontSize: 90,
         marginLeft: 20,
         borderRadius: 1,
-        backgroundColor: '#2D6A4F',
+        backgroundColor: Colors.darkGreen,
     },
     comment: { // comment container
         fontSize: 15,
         marginLeft: 0.1,
-        backgroundColor: '#2D6A4F',
+        backgroundColor: Colors.darkGreen,
         borderRadius: 30,
         fontFamily: 'Cabin',
 
     },
-    text: { // text for steps
+    text: {
         fontSize: 20,
         marginLeft: 10,
         fontFamily: 'Cabin',
@@ -110,6 +114,13 @@ const styles = StyleSheet.create({
         alignItems: "center",
         flexDirection: "row",
         borderWidth: 2,
-        borderColor: '#2D6A4F',
+        borderColor: Colors.darkGreen,
     },
+    textView:
+    {
+        padding: 10,
+        borderRadius: 20,
+        marginTop: 10
+    }
+
 });

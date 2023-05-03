@@ -1,10 +1,12 @@
 
 import { useState } from 'react';
 import { ScrollView, StyleSheet, Image } from 'react-native';
-import { useRecipesContext } from '../../api/Context';
+import { useRecipesContext } from '../../api/RecipeContext';
 import { LikeButton, ReturnButton } from '../../components/Display';
-import { Comments, Steps } from '../../components/recipe/Recipe';
-import { Ingredients } from '../../components/recipe/Ingredients';
+
+import Instructions from '../../components/recipe/Instructions';
+import Comments from '../../components/recipe/Comments';
+import Ingredients from '../../components/recipe/Ingredients';
 
 import { Text, View } from '../../components/Themed';
 import Layout from '../../constants/Layout';
@@ -21,12 +23,14 @@ export default function RecipeScreen({ route, navigation }: RootStackScreenProps
   loadRecipe(id)
   const recipe = { ...recipesDetails.find((x: { id: string; }) => x.id == id), ...recipes.find((x) => x.id == id) }
 
+  console.log('recipe', recipe)
+
   return (
     <View style={styles.container}>
       <ScrollView>
         <View >
           <Image
-            source={{ uri: recipe.image_path }}
+            source={{ uri: recipe.imagePath }}
             style={styles.image}
           />
           <LikeButton id={id} like={recipe.like} />
@@ -56,7 +60,7 @@ export default function RecipeScreen({ route, navigation }: RootStackScreenProps
 
         <View style={styles.viewSteps}>
           <Text style={styles.subTitle}>Etapes de Préparation</Text>
-          <Steps steps={recipe?.step} />
+          <Instructions instructions={recipe?.instructions} />
         </View>
 
         <View style={styles.viewSteps}>
@@ -90,7 +94,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     borderRadius: 30,
     marginBottom: 10,
-    borderColor: '#40916C',
+    borderColor: Colors.green,
   },
   image: {
     flex: 1,

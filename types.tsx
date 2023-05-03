@@ -23,7 +23,7 @@ export type ingredient = {
   name: string
   quantity: number
   unit?: string
-  image_path?: string
+  imagePath?: string
 }
 
 export type Recipe = {
@@ -31,7 +31,7 @@ export type Recipe = {
   category: string,
   comments?: Comment[]
   date: number
-  image_path: string
+  imagePath: string
   ingredients?: ingredient
   like: {
     number: number
@@ -39,7 +39,7 @@ export type Recipe = {
   },
   name: string,
   quantiy?: number
-  step?: string[]
+  instructions?: string[]
   time?: number
   cost?: number
   view?: number

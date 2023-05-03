@@ -28,7 +28,7 @@ import RecipeScreen from '../screens/navigator/RecipeScreen';
 import { RootStackParamList, RootTabParamList } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
 import HomeScreen from '../screens/tabs/HomeScreen';
-import { useAuthContext } from '../api/Context';
+import { useAuthContext } from '../api/AuthContext';
 import LikeScreen from '../screens/tabs/LikeScreen';
 import SearchScreen from '../screens/tabs/SearchScreen';
 

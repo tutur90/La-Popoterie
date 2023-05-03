@@ -3,7 +3,7 @@ import { RootTabScreenProps } from '../../types';
 import { StyleSheet, ScrollView } from 'react-native';
 
 import { RecipeList } from '../../components/home/RecipesList';
-import { useRecipesContext } from '../../api/Context';
+import { useRecipesContext } from '../../api/RecipeContext';
 import Colors from '../../constants/Colors';
 
 

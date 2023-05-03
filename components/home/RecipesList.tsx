@@ -19,7 +19,7 @@ export const RecipeList = (prop: { recipiesList: Recipe[] }) => {
                         onPress={() => { navigation.navigate('Recipe', { record: item }) }}>
                         <Image
                             style={styles.image}
-                            source={{ uri: item.image_path }}
+                            source={{ uri: item.imagePath }}
                         />
                         <Text style={styles.recipeTitle}> {item.name} </Text>
                         <Text style={styles.text}>{`Budget: ` + item.cost + '€'} </Text>

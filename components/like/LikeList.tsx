@@ -1,6 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
 import { FlatList, TouchableOpacity, Image, StyleSheet } from "react-native";
-import { FlashList } from "@shopify/flash-list";
 import { Text, View } from "../Themed";
 import { Recipe } from "../../types";
 import Layout from "../../constants/Layout";
@@ -22,7 +21,7 @@ const LikeList = (prop: { recipesList: Recipe[] }) => {
                         onPress={() => { navigation.navigate('Recipe', { record: item }) }}>
                         <Image
                             style={styles.image}
-                            source={{ uri: item.image_path }}
+                            source={{ uri: item.imagePath }}
                         />
                         <View style={{ flexWrap: 'wrap', backgroundColor: 'transparent' }}>
                             <View style={{ flexDirection: 'row', backgroundColor: 'transparent' }}>

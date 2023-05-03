@@ -5,7 +5,8 @@ import {
     onSnapshot, QueryDocumentSnapshot
 } from "firebase/firestore";
 import { auth, db } from './Firebase';
-import { useAuthContext, useRecipesContext } from './Context';
+import { useRecipesContext } from './RecipeContext';
+import { useAuthContext } from './AuthContext';
 import { onAuthStateChanged } from 'firebase/auth';
 import { Recipe } from '../types';
 

@@ -19,7 +19,7 @@ const SearchList = (props: { list: Recipe[] }) => {
                     }}
                 >
                     <View style={styles.itemView}>
-                        <Image style={styles.image} source={{ uri: item.image_path }} />
+                        <Image style={styles.image} source={{ uri: item.imagePath }} />
                         <View style={styles.titleView} >
                             <Text style={styles.subTitle}>{item.name} </Text>
                             <View style={styles.textView} >

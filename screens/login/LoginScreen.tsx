@@ -5,7 +5,6 @@ import * as React from 'react';
 import { Text, View } from '../../components/Themed';
 import { RootStackScreenProps } from '../../types';
 
-import { GoogleConnection, LoginAnymously, } from '../../components/Connection';
 import { googleConnection, loginAnymously } from '../../api/Auth';
 
 export default function LoginScreen({ navigation }: RootStackScreenProps<'Login'>) {

@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 import { Recipe, RootStackParamList } from '../types';
 import { AntDesign } from '@expo/vector-icons';
 import { useEffect, useState } from 'react';
-import { useAuthContext } from '../api/Context';
+import { useAuthContext } from '../api/AuthContext';
 import { likeRecipe } from '../api/Api';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
@@ -23,7 +23,7 @@ export const RecipeList = (prop: { recipiesList: Recipe[] }) => {
                     onPress={() => { navigation.navigate('Recipe', { record: item }) }}>
                     <Image
                         style={styles.image}
-                        source={{ uri: item.image_path }}
+                        source={{ uri: item.imagePath }}
                     />
                     <Text style={styles.recipeTitle}>{item.name} </Text>
                     <Text style={styles.text}>{`Temps: ` + item.time} </Text>

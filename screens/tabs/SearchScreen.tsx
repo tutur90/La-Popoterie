@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { StyleSheet, } from 'react-native';
-import { useRecipesContext } from '../../api/Context';
+import { useRecipesContext } from '../../api/RecipeContext';
 import SearchList from '../../components/search/SearchList';
 import { View, TextInput } from '../../components/Themed'
 import { RootTabScreenProps } from '../../types';

@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { AntDesign } from '@expo/vector-icons';
-import { useAuthContext } from '../api/Context';
+import { useAuthContext } from '../api/AuthContext';
 import Sizes from '../constants/Sizes';
 
 export const tabOptionStyle = (label: string, name: React.ComponentProps<typeof AntDesign>['name']) => {
