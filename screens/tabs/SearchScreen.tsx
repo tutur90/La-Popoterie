@@ -1,18 +1,21 @@
 
 import { useState } from 'react';
 import { StyleSheet, } from 'react-native';
-import { useRecipesContext } from '../../api/RecipeContext';
+import { useRecipesContext } from '../../context/RecipeContext';
 import SearchList from '../../components/search/SearchList';
 import { View, TextInput } from '../../components/Themed'
 import { RootTabScreenProps } from '../../types';
 
-const SearchScreen = ({ navigation }: RootTabScreenProps<'Search'>) => {
+const SearchScreen = ({ navigation }: RootTabScreenProps<'Recherche'>) => {
     const [searchText, setSearchText] = useState<string>('');
     const { recipes } = useRecipesContext();
 
+
+
     const results = recipes.filter(recipe =>
-        recipe.name.toLowerCase().match(searchText.toLowerCase()));
+        recipe.name.toLowerCase().match(searchText.toLowerCase()) || recipe.ingredients.filter(ingredient => ingredient.name.toLowerCase().match(searchText.toLowerCase())).length > 0);
     // search in name of the recipe
+
 
     return (
         <View style={styles.container}>
@@ -35,10 +38,8 @@ export default SearchScreen;
 const styles = StyleSheet.create({
     container: {
         alignItem: 'center',
-        padding: 10,
         paddingBottom: 10,
-        backgroundColor: 'white',
-        height: '100%',
+        backgroundColor: 'transparent',
     },
     image: {
         height: 60,

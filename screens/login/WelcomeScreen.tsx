@@ -6,7 +6,7 @@ import Colors from '../../constants/Colors';
 export default function WelcomeScreen({ navigation }: RootStackScreenProps<'Welcome'>) {
   return (
     <View style={styles.container}>
-      <Image source={require('../../assets/images/Logo.png')} style={styles.image} />
+      <Image source={require('../../assets/images/logo.png')} style={styles.image} />
       <Text style={styles.title}>La Popoterie</Text>
       <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Login')}>
         <Text style={styles.text}>Bienvenue!</Text>

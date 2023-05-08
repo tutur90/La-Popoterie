@@ -1,8 +1,8 @@
 import { TouchableOpacity, StyleSheet } from "react-native";
 import { TextInput, View, Text } from "../Themed";
 import { AntDesign } from "@expo/vector-icons";
-import { useRecipesContext } from "../../api/RecipeContext";
-import { useAuthContext } from "../../api/AuthContext";
+import { useRecipesContext } from "../../context/RecipeContext";
+import { useAuthContext } from "../../context/AuthContext";
 import { useState } from "react";
 import { Comment } from "../../types";
 import Colors from "../../constants/Colors";
@@ -44,21 +44,32 @@ const Comments = (props: { comments: Comment[], id: string }) => {
                 <View style={{
                     flexDirection: "row",
                     alignItems: "center",
-                    backgroundColor: 'transparent'
+                    backgroundColor: 'transparent',
                 }}>
-
-                    <TextInput
-                        style={styles.input}
-                        value={inputComment}
-                        onChangeText={setInputComment}
-                        onSubmitEditing={publishComment}
-                        placeholder='Ajouter un commentaire'
-                    />
+                    <View style={styles.separator}>
+                    </View>
+                    <View style={{ borderBottomColor: Colors.darkGreen, borderBottomWidth: 2, }}>
+                        <TextInput
+                            style={styles.input}
+                            value={inputComment}
+                            onChangeText={setInputComment}
+                            onSubmitEditing={publishComment}
+                            placeholder='Ajouter un commentaire'
+                        />
+                    </View>
                     <TouchableOpacity style={{ flexDirection: 'row', marginLeft: 10 }} onPress={publishComment}>
                         <AntDesign name="pluscircleo" color={'white'} size={30} />
                     </TouchableOpacity>
                 </View> :
-                null}
+                <View style={{
+                    flexDirection: "row",
+                    alignItems: "center",
+                    backgroundColor: 'transparent',
+                }}>
+                    <View style={styles.separator}></View>
+                    <Text style={styles.text2}>Connectez-vous pour laisser un commentaire!</Text>
+                </View>
+            }
             <View style={styles.comment}>
                 {comments?.sort((a, b) => b.date - a.date).map((comment, index) => {
                     return <DispComments comment={comment} key={index} />
@@ -73,10 +84,10 @@ export default Comments;
 const styles = StyleSheet.create({
 
     input: {
-        fontSize: 90,
-        marginLeft: 20,
+        fontSize: 25,
+        marginLeft: 10,
         borderRadius: 1,
-        backgroundColor: Colors.darkGreen,
+        color: 'white',
     },
     comment: { // comment container
         fontSize: 15,
@@ -98,29 +109,21 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         fontFamily: 'Cabin',
     },
-    textCap: { // text for name of ingredient
-        fontSize: 16,
-        marginLeft: 10,
-        textTransform: 'capitalize',
-        fontFamily: 'Cabin',
-
-    },
-    ingr: { // style des ingrédiants
-        width: '45%',
-        padding: 10,
-        margin: 5,
-        backgroundColor: 'transparent',
-        borderRadius: 20,
-        alignItems: "center",
-        flexDirection: "row",
-        borderWidth: 2,
-        borderColor: Colors.darkGreen,
-    },
-    textView:
-    {
+    textView: {
         padding: 10,
         borderRadius: 20,
         marginTop: 10
-    }
+    },
+    separator: {
+        marginVertical: 40,
+        height: 2,
+        alignSelf: 'center',
+    },
+    text2: {
+        fontSize: 20,
+        marginLeft: 10,
+        fontFamily: 'Cabin',
+        color: 'red',
+    },
 
 });

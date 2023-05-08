@@ -24,12 +24,12 @@ const LikeList = (prop: { recipesList: Recipe[] }) => {
                             source={{ uri: item.imagePath }}
                         />
                         <View style={{ flexWrap: 'wrap', backgroundColor: 'transparent' }}>
-                            <View style={{ flexDirection: 'row', backgroundColor: 'transparent' }}>
+                            <View style={{ flexDirection: 'row', backgroundColor: 'transparent', height: 50 }}>
                                 <Text style={styles.recipeTitle}> {item.name} </Text>
                             </View>
 
-                            <Text style={styles.text}>{'Budget: ' + item.cost + '€'} </Text>
-                            <Text style={styles.text}>{'Temps: ' + item.time + ' min   '} </Text>
+                            <Text style={styles.text}>{'Budget💸: ' + item.cost.toFixed(2) + '€'} </Text>
+                            <Text style={styles.text}>{'Temps⏳: ' + item.time + ' min   '} </Text>
                         </View>
                     </TouchableOpacity>
                 </View>
@@ -42,13 +42,14 @@ export default LikeList;
 const styles = StyleSheet.create({
 
     recipeTitle: { // Titre de la recette
-        fontSize: 20,
+        fontSize: 16,
         textTransform: 'capitalize',
         fontFamily: 'Cabin',
         color: 'white',
         marginVertical: 2,
         flex: 1,
         flexWrap: 'wrap',
+        paddingHorizontal: 5,
     },
     image: {
         height: Layout.window.width / (numColumns * 1.1),
@@ -56,7 +57,7 @@ const styles = StyleSheet.create({
         borderRadius: 25,
     },
     text: { //texte du prix 
-        fontSize: 15,
+        fontSize: 13,
         color: 'white',
         fontFamily: 'Garet',
         marginLeft: 10,

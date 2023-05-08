@@ -12,7 +12,7 @@ export const RecipeList = (prop: { recipiesList: Recipe[] }) => {
             data={prop.recipiesList}
             horizontal={true}
             renderItem={({ item, index }: { item: Recipe, index: number }) =>
-                <View style={{ padding: 10 }}>
+                <View style={styles.recipeContainer}>
                     <TouchableOpacity
                         key={index}
                         style={styles.touchableOpacity}
@@ -21,9 +21,13 @@ export const RecipeList = (prop: { recipiesList: Recipe[] }) => {
                             style={styles.image}
                             source={{ uri: item.imagePath }}
                         />
-                        <Text style={styles.recipeTitle}> {item.name} </Text>
-                        <Text style={styles.text}>{`Budget: ` + item.cost + '€'} </Text>
-                        <Text style={styles.text}>{'Temps: ' + item.time + ' min   '} </Text>
+                        <View style={{ backgroundColor: 'transparent', padding: 10 }}>
+                            <View style={{ backgroundColor: 'transparent', height: 50 }}>
+                                <Text style={styles.recipeTitle}> {item.name} </Text>
+                            </View>
+                            <Text style={styles.text}>{`Budget💸: ` + item.cost.toFixed(2) + '€'} </Text>
+                            <Text style={styles.text}>{'Temps⏳: ' + item.time + ' min   '} </Text>
+                        </View>
                     </TouchableOpacity>
                 </View>
             }
@@ -34,26 +38,26 @@ export const RecipeList = (prop: { recipiesList: Recipe[] }) => {
 const styles = StyleSheet.create({
 
     recipeTitle: { // Titre de la recette
-        fontSize: 20,
+        fontSize: 18,
         textTransform: 'capitalize',
         fontFamily: 'Cabin',
-        marginVertical: 3,
         color: 'white',
-        marginLeft: 5,
+    },
+    recipeContainer: {
+        padding: 10,
         flex: 1,
-        flexWrap: 'wrap',
+        maxWidth: 220,
+        Width: 400,
     },
     text: { //texte du prix 
         fontSize: 15,
         color: 'white',
         fontFamily: 'Garet',
-        marginLeft: 10,
-        marginVertical: 1,
     },
     touchableOpacity:
     {
         marginTop: 10,
-        shadowColor: "#000",
+        shadowColor: Colors.darkGreen,
         shadowOffset: {
             width: 0,
             height: 5,
@@ -69,5 +73,6 @@ const styles = StyleSheet.create({
         height: 220,
         width: 200,
         borderRadius: 25,
+        flex: 1,
     },
 });

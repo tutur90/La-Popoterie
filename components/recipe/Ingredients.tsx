@@ -2,24 +2,32 @@ import { AntDesign } from "@expo/vector-icons";
 import { View, Text } from "../Themed";
 import { StyleSheet, Image } from "react-native";
 import Colors from "../../constants/Colors";
+import { Ingredient, RecipeIngredient } from "../../types";
 
 
-const Ingredients = (props: { ingredients: any[], personsNumber: number }) => {
+const Ingredients = (props: { ingredients: Ingredient[] | RecipeIngredient[], personsNumber: number }) => {
     const { ingredients, personsNumber } = props;
     var cost: number = 0;
 
     return (
         <View style={styles.ingrList}>
-            {ingredients?.map((ingredient, index) => {
-                const quantity = ingredient.quantity * personsNumber;
-                cost += ingredient.cost * personsNumber;
-                return (<View style={styles.ingrCell} key={index}>
-                    <IngrImage imagePath={ingredient.imagePath} />
-                    <View style={{ backgroundColor: 'transparent', flexShrink: 1 }}>
-                        <Text style={styles.textCap}>{ingredient.name + ' :'}</Text>
-                        <IngrQuantity quantity={quantity} unit={ingredient.unit} />
-                    </View>
-                </View>)
+            {ingredients.map((ingredient, index) => {
+                if (!ingredient) return null;
+
+                const ingr = ingredient as Ingredient;
+
+                const quantity = ingr.quantity * personsNumber;
+                cost += ingr.cost * quantity;
+                return (
+                    <View style={{ width: '50%' }} key={index}>
+                        <View style={styles.ingrCell}>
+                            <IngrImage imagePath={ingr.imagePath} />
+                            <View style={{ backgroundColor: 'transparent', flexShrink: 1 }}>
+                                <Text style={styles.textCap}>{ingr.name + ' :'}</Text>
+                                <IngrQuantity quantity={quantity} unit={ingr.unit} />
+                            </View>
+                        </View>
+                    </View>)
             })}
         </View>
     );
@@ -42,6 +50,9 @@ const IngrImage = (props: { imagePath: string | undefined }) => {
 
 const IngrQuantity = (props: { quantity: number, unit: string | undefined }) => {
     const { quantity, unit } = props;
+
+    if (unit === undefined) return <Text style={styles.text}>{quantity}</Text>
+
     if (unit !== 'p') {
         return <Text style={styles.text}>{quantity + ' ' + unit}</Text>
     } else {
@@ -59,18 +70,20 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent',
     },
     text: {
-        fontSize: 15,
+        fontSize: 13,
         marginLeft: 10,
+        fontFamily: 'Cabin',
     },
     textCap: {
         fontSize: 15,
         marginLeft: 10,
         textTransform: 'capitalize',
+        fontFamily: 'Cabin',
 
     },
+
     ingrCell: { // style des ingrédiants
-        width: '45%',
-        padding: 10,
+        padding: 5,
         margin: 5,
         backgroundColor: 'transparent',
         borderRadius: 20,
@@ -78,5 +91,6 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         borderWidth: 2,
         borderColor: Colors.darkGreen,
+        height: 70,
     },
 });

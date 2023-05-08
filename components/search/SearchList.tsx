@@ -23,8 +23,8 @@ const SearchList = (props: { list: Recipe[] }) => {
                         <View style={styles.titleView} >
                             <Text style={styles.subTitle}>{item.name} </Text>
                             <View style={styles.textView} >
-                                <Text style={styles.text}>{'Temps: ' + item.time + ' min   '} </Text>
-                                <Text style={styles.text}>{'Prix: ' + item.cost} </Text>
+                                <Text style={styles.text}>{'Temps⏳: ' + item.time + ' min   '} </Text>
+                                <Text style={styles.text}>{'Budget💸: ' + item.cost.toFixed(2) + ' €'} </Text>
                             </View>
                         </View>
                     </View>
@@ -38,8 +38,8 @@ export default SearchList;
 
 const styles = StyleSheet.create({
     image: {
-        height: 60,
-        width: 60,
+        height: 80,
+        width: 80,
         borderRadius: 20,
         borderWidth: 0.5,
     },
@@ -47,28 +47,30 @@ const styles = StyleSheet.create({
         fontSize: 20,
         textTransform: 'capitalize',
         fontFamily: 'Cabin',
-        color: 'black',
+        color: 'white',
         marginLeft: 0.5,
         marginVertical: 3,
     },
     text: {
-        fontSize: 15,
-        color: Colors.green,
+        fontSize: 13,
+        color: 'white',
         fontFamily: 'Garet',
-        marginLeft: 5,
+
     },
     itemView: {
-        marginTop: 10,
+        marginHorizontal: 10,
+        marginVertical: 5,
         borderRadius: 20,
         padding: 10,
         flexDirection: 'row',
         alignItems: 'center',
         flexWrap: 'wrap',
-        backgroundColor: Colors.lightGray,
+        backgroundColor: Colors.darkGreen,
         shadowOpacity: 0.2,
         shadowRadius: 3,
         shadowColor: 'black',
         shadowOffset: { height: 5, width: 5 },
+        elevation: 5,
     },
     titleView: {
         flex: 1,

@@ -1,13 +1,13 @@
 import { useContext, useEffect } from 'react';
 import { Button, StyleSheet, TouchableOpacity } from 'react-native';
-import { useRecipesContext } from '../../api/RecipeContext';
-import { useAuthContext } from '../../api/AuthContext';
+import { useRecipesContext } from '../../context/RecipeContext';
+import { useAuthContext } from '../../context/AuthContext';
 
 import LikeList from '../../components/like/LikeList';
 import { Text, View } from '../../components/Themed';
 import { RootTabScreenProps } from '../../types';
 
-const LikeScreen = ({ navigation }: RootTabScreenProps<'Like'>) => {
+const LikeScreen = ({ navigation }: RootTabScreenProps<'Favoris'>) => {
 
   const { recipes } = useRecipesContext();
   const { user } = useAuthContext();

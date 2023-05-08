@@ -1,36 +1,31 @@
-/**
- * If you are not familiar with React Navigation, refer to the "Fundamentals" guide:
- * https://reactnavigation.org/docs/getting-started
- *
- */
-import { FontAwesome } from '@expo/vector-icons';
+
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, DefaultTheme, DarkTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as React from 'react';
-import { ColorSchemeName, Pressable } from 'react-native';
+import { ColorSchemeName } from 'react-native';
 import { tabOptionStyle } from '../components/Navigation';
-
-
 
 import LoginScreen from '../screens/login/LoginScreen';
 import WelcomeScreen from '../screens/login/WelcomeScreen';
 
+import HomeScreen from '../screens/tabs/HomeScreen';
+import LikeScreen from '../screens/tabs/LikeScreen';
+import SearchScreen from '../screens/tabs/SearchScreen';
 
-import { auth } from '../api/Firebase';
+import AccountScreen from '../screens/navigator/AccountScreen';
+import NotFoundScreen from '../screens/navigator/NotFoundScreen';
+import RecipeScreen from '../screens/navigator/RecipeScreen';
 
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
-import ModalScreen from '../screens/navigator/ModalScreen';
-import NotFoundScreen from '../screens/navigator/NotFoundScreen';
-import RecipeScreen from '../screens/navigator/RecipeScreen';
+
 import { RootStackParamList, RootTabParamList } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
-import HomeScreen from '../screens/tabs/HomeScreen';
-import { useAuthContext } from '../api/AuthContext';
-import LikeScreen from '../screens/tabs/LikeScreen';
-import SearchScreen from '../screens/tabs/SearchScreen';
+
+import { useAuthContext } from '../context/AuthContext';
+import InfoScreen from '../screens/navigator/InfoScreen';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -66,9 +61,11 @@ function RootNavigator() {
               <Stack.Screen name="Recipe" component={RecipeScreen} />
 
               <Stack.Screen name="NotFound" component={NotFoundScreen} options={{ title: 'Oops!' }} />
-              <Stack.Group screenOptions={{ presentation: 'modal' }}>
-                <Stack.Screen name="Modal" component={ModalScreen} />
-              </Stack.Group>
+
+              <Stack.Screen name="Compte" component={AccountScreen} />
+
+              <Stack.Screen name="Info" component={InfoScreen} />
+
             </>)}
     </Stack.Navigator>
   );
@@ -85,22 +82,22 @@ function BottomTabNavigator() {
 
   return (
     <BottomTab.Navigator
-      initialRouteName="Home"
+      initialRouteName="Accueil"
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme].tint,
+        tabBarActiveTintColor: Colors.green,
       }}>
       <BottomTab.Screen
-        name="Home"
+        name="Accueil"
         component={HomeScreen}
-        options={tabOptionStyle('Acueuil', 'home')}
+        options={tabOptionStyle('Accueil', 'home')}
       />
       <BottomTab.Screen
-        name="Like"
+        name="Favoris"
         component={LikeScreen}
-        options={tabOptionStyle('Favorite', 'hearto')}
+        options={tabOptionStyle('Favoris', 'hearto')}
       />
       <BottomTab.Screen
-        name="Search"
+        name="Recherche"
         component={SearchScreen}
         options={tabOptionStyle('Recherche', 'search1')}
       />

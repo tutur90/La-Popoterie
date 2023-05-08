@@ -2,7 +2,7 @@ import { AntDesign } from '@expo/vector-icons';
 import * as Font from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect, useState } from 'react';
-import { useAuthContext } from '../api/AuthContext';
+import { useAuthContext } from '../context/AuthContext';
 
 
 export default function useCachedResources() {
@@ -22,6 +22,8 @@ export default function useCachedResources() {
           'Butler': require('../assets/fonts/Butler.ttf'),
           'Garet': require('../assets/fonts/Garet.ttf'),
           'Cabin': require('../assets/fonts/Cabin.ttf'),
+          'Loves': require('../assets/fonts/LOVES.ttf'),
+          'Zector': require('../assets/fonts/Zector.ttf'),
         });
 
 

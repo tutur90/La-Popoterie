@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { RecipiesProvider } from './api/RecipeContext';
-import { AuthProvider } from './api/AuthContext';
+import { RecipiesProvider } from './context/RecipeContext';
+import { AuthProvider } from './context/AuthContext';
 
 import useCachedResources from './hooks/useCachedResources';
 import useColorScheme from './hooks/useColorScheme';

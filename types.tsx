@@ -19,42 +19,51 @@ export type Comment = {
   user: string
 }
 
-export type ingredient = {
+export type Ingredient = {
   name: string
   quantity: number
-  unit?: string
-  imagePath?: string
+  unit: string
+  imagePath: string
+  cost: number
 }
 
+
+export type RecipeIngredient = {
+  name: string,
+  quantity: number,
+}
+
+
 export type Recipe = {
-  id: string
+  id?: string,
+  name: string,
   category: string,
-  comments?: Comment[]
-  date: number
   imagePath: string
-  ingredients?: ingredient
+  ingredients: RecipeIngredient[] | Ingredient[]
+  instructions: string[]
+  time: number
+  cost: number
+  date: number
   like: {
     number: number
     person: string[]
   },
-  name: string,
-  quantiy?: number
-  instructions?: string[]
-  time?: number
-  cost?: number
-  view?: number
+  diet: diet[],
+  season: season[]
 }
+export type diet = 'vegan' | 'sans gluten' | 'sans lactose'
 
+export type season = 'printemps' | 'été' | 'automne' | 'hiver'
 
 
 export type RootStackParamList = {
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
-  Modal: undefined;
+  Compte: undefined;
   NotFound: undefined;
   Login: undefined;
   Recipe: { record: Recipe };
   Welcome: undefined;
-  Coucou: undefined;
+  Info: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> = NativeStackScreenProps<
@@ -63,9 +72,9 @@ export type RootStackScreenProps<Screen extends keyof RootStackParamList> = Nati
 >;
 
 export type RootTabParamList = {
-  Home: undefined;
-  Like: undefined;
-  Search: undefined;
+  Accueil: undefined;
+  Favoris: undefined;
+  Recherche: undefined;
 
 };
 

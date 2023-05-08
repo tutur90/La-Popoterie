@@ -1,37 +1,15 @@
 
-import { StyleSheet, FlatList, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, FlatList, TouchableOpacity, Image, StatusBar } from 'react-native';
 import { Text, View } from './Themed';
 import { useNavigation } from '@react-navigation/native';
 import { Recipe, RootStackParamList } from '../types';
 import { AntDesign } from '@expo/vector-icons';
 import { useEffect, useState } from 'react';
-import { useAuthContext } from '../api/AuthContext';
+import { useAuthContext } from '../context/AuthContext';
 import { likeRecipe } from '../api/Api';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import Colors from '../constants/Colors';
 
-export const RecipeList = (prop: { recipiesList: Recipe[] }) => {
-    const navigation = useNavigation();
-    return (
-        <FlatList
-            style={{ padding: 5 }}
-            data={prop.recipiesList}
-            horizontal={true}
-            renderItem={({ item, index }: { item: Recipe, index: number }) =>
-                <TouchableOpacity
-                    key={index}
-                    style={styles.touchableOpacity}
-                    onPress={() => { navigation.navigate('Recipe', { record: item }) }}>
-                    <Image
-                        style={styles.image}
-                        source={{ uri: item.imagePath }}
-                    />
-                    <Text style={styles.recipeTitle}>{item.name} </Text>
-                    <Text style={styles.text}>{`Temps: ` + item.time} </Text>
-                </TouchableOpacity>
-            }
-        />
-    )
-}
 
 export const ReturnButton = (props: { navigation: NativeStackNavigationProp<RootStackParamList> }) => {
     return (
@@ -92,9 +70,9 @@ const styles = StyleSheet.create({
     },
     returnButton: {
         position: 'absolute',
-        left: 5,
-        top: 35,
-        backgroundColor: 'rgba(2, 2, 2, 0.4)',
+        left: 10,
+        top: 40,
+        backgroundColor: Colors.darkGreen,
         borderRadius: 15
     },
     likeButton: {

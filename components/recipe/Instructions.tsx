@@ -30,15 +30,8 @@ const styles = StyleSheet.create({
     text: { // text for instructions
         fontSize: 20,
         marginLeft: 10,
-        fontFamily: 'Cabin',
+        fontFamily: 'Garet',
         marginVertical: 10,
-
-    },
-    textCap: { // text for name of ingredient
-        fontSize: 16,
-        marginLeft: 10,
-        textTransform: 'capitalize',
-        fontFamily: 'Cabin',
 
     },
 

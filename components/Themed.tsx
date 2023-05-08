@@ -1,9 +1,5 @@
-/**
- * Learn more about Light and Dark modes:
- * https://docs.expo.io/guides/color-schemes/
- */
 
-import { Text as DefaultText, View as DefaultView, TextInput as DefaultTextInput, TouchableOpacity } from 'react-native';
+import { Text as DefaultText, View as DefaultView, TextInput as DefaultTextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
@@ -30,6 +26,7 @@ type ThemeProps = {
 export type TextProps = ThemeProps & DefaultText['props'];
 export type ViewProps = ThemeProps & DefaultView['props'];
 export type TextInputProps = ThemeProps & DefaultTextInput['props'];
+export type TouchableOpacityProps = ThemeProps & TouchableOpacity['props'];
 
 export function Text(props: TextProps) {
   const { style, lightColor, darkColor, ...otherProps } = props;
@@ -51,3 +48,22 @@ export function TextInput(props: TextInputProps) {
 
   return <DefaultTextInput style={[{ color }, style]} placeholderTextColor='grey'  {...otherProps} />;
 }
+
+export function ButtonView(props: TouchableOpacityProps) {
+  const { style, lightColor, darkColor, disabled, ...otherProps } = props;
+
+  const backgroundColor = Colors.darkGreen
+
+  return <TouchableOpacity {...props} style={[styles.button, { backgroundColor: backgroundColor }, props.style]} {...otherProps} />
+}
+
+const styles = StyleSheet.create({
+
+  button: {
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    borderRadius: 10,
+    marginTop: 20,
+    elevation: 5,
+  }
+});
