@@ -27,11 +27,15 @@ const HomeScreen = ({ navigation }: RootTabScreenProps<'Accueil'>) => {
   return (
     <View style={styles.container} >
       <ScrollView style={{ flex: 1 }}>
+        <View style={{ alignItems: 'center' }} />
         <Text style={styles.title}>La Popoterie</Text>
         <Text style={styles.subTitle}>vous propose...</Text>
+        <View />
         <View style={styles.separator} />
+        <View>
+          <Text style={styles.categoryTitle2}>Filtrer par:</Text>
+        </View>
         <View style={{ flexDirection: 'row', justifyContent: 'space-evenly' }}>
-
           <ButtonView onPress={() => setNewDiet('vegan', diet, setDiet)}
             style={{ backgroundColor: diet.includes('vegan') ? Colors.intanceDarkGreen : '#95D5B2', marginVertical: 10, paddingHorizontal: 5 }}>
             <Text style={{ color: diet.includes('vegan') ? 'white' : 'black', ...styles.buttonTitle }}>{'vegan 🌱'}</Text>
@@ -55,6 +59,10 @@ const HomeScreen = ({ navigation }: RootTabScreenProps<'Accueil'>) => {
         <View >
           <Text style={styles.categoryTitle}>Nouveautés</Text>
           <RecipeList recipiesList={novelty} />
+        </View>
+        <View >
+          <Text style={styles.categoryTitle}>Toutes les recettes</Text>
+          <RecipeList recipiesList={recipesFiltered} />
         </View>
       </ScrollView>
     </View>
@@ -85,12 +93,11 @@ const styles = StyleSheet.create({
   title: { //pour le titre
     fontFamily: 'Butler',
     fontSize: 50,
-    marginLeft: 50,
     color: Colors.darkGreen,
-    alignItems: 'center',
     marginTop: 40,
-
+    textAlign: 'center',
   },
+
   buttonView: {
     borderRadius: 10,
 
@@ -98,10 +105,15 @@ const styles = StyleSheet.create({
   subTitle: { //pour le "vous propose"
     fontFamily: 'Garet',
     fontSize: 27,
-    marginLeft: 90,
+    textAlign: 'center',
   },
   categoryTitle: { //pour le titre des catégories
     fontSize: 30,
+    marginLeft: 20,
+    fontFamily: 'Loves',
+  },
+  categoryTitle2: { //pour les filtres
+    fontSize: 18,
     marginLeft: 20,
     fontFamily: 'Loves',
   },

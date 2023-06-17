@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "la-popoterie",
+  "private_key_id": "9fdaa750d364a1229ab732a17af0756cb0eb1398",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDGBbzgVEkBTd9s\nqaZ0fya4ohTgQxRpKQmAv5bhktvV9vKXdZT66l8lYDRcWIGRv5YhS8li2A10FIeB\nBBgbTJOEuWGymZKT8t1WEOYBXWKY0P+4pZpPHdbcI4cG3MCQETj8Fe9p2Fg6fpra\nSfm0UcijTnOX3nYlRfudmxrID0U5l2KmPES7YaukqYR1OAFO/Kh0FLLWCcj5McSA\nFclHHo0UJO7pzJBEjFS+iooK6odBUjy1P0HW4vlauIdd9tE745hSjxYUaWS5zUfP\nbyIxMbG83ybDmoRmwWXTiSIOZT1eeFgq9hcBBWM7aJxYV7k3KkMkbsJebst79zaO\nvD13Xg9xAgMBAAECggEAVHqoLG/owVSuh5YMvFBufYAwNciIUaC/PB0ASnWzsaFr\nty/jgfQw6SoUzHy5sisw6j2BydhwTOBhOqo7epH9sTbBNkeMH/AReyE0bsqfQKCR\nJ/4GSdBqFHpXpZbR0+R1Eh5tiBNS+ImAmLXMgKAPX5QdfmHat2YWxRMhps3U848g\nbHvRcMJe0gUHHmtPycg5EAPGS3xnlxcbxMFeciI+SpEGjBJvyhmggFadE2/pwsR2\nJBtTEpQZGYM9DWt1twNEP3+9EJPPoColPGZGN69MaC9/fsKp0F8Qi7UsG4CrZ30o\nkWZjQu7VIUjox7gA80savPvJJuqdwRvONmg/dIO4/QKBgQDw0hasNNge4mq+CH6Z\nXuecdLvSI7n8/cXeeZqptCTc2pcQ9N/jR6VvkEd8oEHhN01JdDnqGmmK9Ch2paOc\nC8tFSzJuMIOZX+gEoBaZK+BprjqMp9DRo4/pJW0+CcviqHdYT8sor6xO+3NYVuIl\nAroD+EFzFq3/Qf6DF7f7iBvoLwKBgQDSgQ0x7vdbCWQKMf31Ae176+RAZTpVdXos\nqHHiALdNM5mFm2djpoSWjAoRteCqMJoPkbFErHxmnLpmEZWzBvlyb9gdHW/OCxb1\nf4p3xU98at2hT+m9beBYUEKDdX9xZhLfN9RaNlYMPK4FKRbvA5Irod3nwyUil0Jx\nUW9jGcv6XwKBgQCazmK2xq2bhO8bQ/il/QUkZUILvt2jjTryXfeXWe9MbdQomVGH\nGBp4EiZyLc7LyTIMowNLwzjPk06jnq0C9e3wmHtNrDAcmzNaLdL5GeSD6vVGT+aD\nrQIo3N9RvxhqluNJSNoPSIaaqzeltQxgwFT1klP4eL7XVQQYH1os/nz6DwKBgQCr\nTubEGism5Q+K1IBN4ZG45ZHNbhP49C/HJBX5zIdfxnxLpNqQ2DTSp4iSPSdmmULn\nJLPUpWJfx3BSHEFtfmGGZcrEdu5ECfZXN8IiEmrLX9SZsIUR6ddHR5m5jed3C5CU\nI8Um3U1NjBw6iuPlA0zzQTlroP4Zlms1+QXi6l17lQKBgFUr2+742oa1DDvX3tOk\npngXqu1FJlOVaGOZfw6bRi9cf0OmIJuCnqICjpOQ8fGlPkMh7M3rEXrxrvIIBu6m\nW4MOIyHU/WNYGgTPFQ//K6RMHtGo4hSmTq5pSKnNhg3PNYsWPXt1BGvT6RAGvWta\n/CPEShllZUQYci4TypJY0vko\n-----END PRIVATE KEY-----\n",
+  "client_email": "la-popoterie-app@la-popoterie.iam.gserviceaccount.com",
+  "client_id": "116681398184553873990",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/la-popoterie-app%40la-popoterie.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

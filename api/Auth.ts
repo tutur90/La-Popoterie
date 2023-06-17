@@ -1,21 +1,26 @@
-import * as React from 'react';
+import { useEffect, useState } from 'react';
 import * as WebBrowser from 'expo-web-browser';
 import * as Google from 'expo-auth-session/providers/google';
 import { GoogleAuthProvider, signInWithCredential, signInAnonymously } from 'firebase/auth';
 import { auth } from './Firebase';
 import clientId from '../.env/GoogleAuth';
 
-WebBrowser.maybeCompleteAuthSession();
+var webBro = WebBrowser.maybeCompleteAuthSession();
 
 export const googleConnection = (setDisabled: (disable: boolean) => void) => {
-    const [request, response, promptAsync] = Google.useIdTokenAuthRequest(clientId);
+    const [request, response, promptAsync] = Google.useIdTokenAuthRequest({
+        ...clientId
+    }
+    );
 
-    React.useEffect(() => {
+    useEffect(() => {
+
         if (response?.type === 'success') {
             const { id_token } = response.params;
             const credential = GoogleAuthProvider.credential(id_token);
             signInWithCredential(auth, credential);
         }
+        console.log(webBro)
         setDisabled(!request || response?.type === 'success');
     }, [response, request]);
 
@@ -25,6 +30,7 @@ export const googleConnection = (setDisabled: (disable: boolean) => void) => {
             if (result.type === 'success') {
                 return result.params.id_token;
             } else {
+                alert(result.type)
                 return { cancelled: true };
             }
         } catch (e) {

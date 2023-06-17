@@ -55,8 +55,8 @@ export const HeaderLeft = () => {
             style={({ pressed }) => ({
                 opacity: pressed ? 0.5 : 1,
             })}>
-            <View style={{ marginLeft: 10 }}>
-                <Image source={require('../assets/images/logoVide.png')} style={{ width: 50, height: 50 }} />
+            <View style={{ marginLeft: 1, }}>
+                <Image source={require('../assets/images/logoVide.png')} style={{ width: 65, height: 65 }} />
             </View>
         </Pressable>)
 }

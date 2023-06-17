@@ -2,7 +2,7 @@ import { Button, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
 import * as React from 'react';
 
-import { ButtonView, Text, View } from '../../components/Themed';
+import { ButtonView, Text, TextInput, View } from '../../components/Themed';
 import { RootStackScreenProps } from '../../types';
 
 import { googleConnection, loginAnymously } from '../../api/Auth';
@@ -13,9 +13,31 @@ export default function LoginScreen({ navigation }: RootStackScreenProps<'Login'
 
   const signInWithGoogleAsync = googleConnection(setButtonDisabled);
 
+  const [loginRegistered, setLoginRegistered] = React.useState(false);
+
   return (
     <View style={styles.container}>
       <View>
+        <View >
+          <Text style={styles.title}>Login</Text>
+          <ButtonView onPress={() => (setLoginRegistered(true))} disabled={buttonDisabled}
+            style={{ backgroundColor: !loginRegistered ? 'green' : 'white' }}>
+            <Text style={styles.text2}>Login</Text>
+          </ButtonView>
+          <ButtonView onPress={() => (setLoginRegistered(false))} disabled={buttonDisabled}
+            style={{ backgroundColor: loginRegistered ? 'green' : 'white' }}>
+            <Text style={styles.text2}>Register</Text>
+          </ButtonView>
+
+          <TextInput style={{ backgroundColor: 'white', }} placeholder="Email" />
+          <TextInput style={{ backgroundColor: 'white', }} placeholder="Password" />
+
+          <ButtonView onPress={() => (setLoginRegistered(false))} disabled={buttonDisabled}
+            style={{ backgroundColor: loginRegistered ? 'green' : 'white' }}>
+            <Text style={styles.text2}>C'est partie</Text>
+          </ButtonView>
+        </View>
+
         <Image source={require('../../assets/images/pageLogin.png')} style={styles.image} />
         <View style={styles.position}>
           <Text style={styles.title}>Compte google:</Text>

@@ -14,13 +14,13 @@ const PersonsNumber = (props: { personsNumber: number, setPersonsNumber: (person
         <View style={styles.view}>
             <TouchableOpacity onPress={() => { setPersonsNumber(personsNumber - 1) }}
                 disabled={personsNumber <= minPersonsNumber}>
-                <Entypo name="squared-minus" size={30}
+                <Entypo name="squared-minus" size={31}
                     color={personsNumber <= minPersonsNumber ? 'grey' : Colors.green} />
             </TouchableOpacity>
             <Text style={{ fontSize: 28 }}>{personsNumber}</Text>
             <TouchableOpacity onPress={() => setPersonsNumber(personsNumber + 1)}
                 disabled={personsNumber >= maxPersonsNumber}>
-                <Entypo name="squared-plus" size={30}
+                <Entypo name="squared-plus" size={31}
                     color={personsNumber >= maxPersonsNumber ? 'grey' : Colors.green} />
             </TouchableOpacity>
         </View>

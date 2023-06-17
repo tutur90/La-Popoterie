@@ -16,7 +16,7 @@ const Ingredients = (props: { ingredients: Ingredient[] | RecipeIngredient[], pe
 
                 const ingr = ingredient as Ingredient;
 
-                const quantity = ingr.quantity * personsNumber;
+                const quantity = ingr.quantity * personsNumber / 2;
                 cost += ingr.cost * quantity;
                 return (
                     <View style={{ width: '50%' }} key={index}>
@@ -51,12 +51,12 @@ const IngrImage = (props: { imagePath: string | undefined }) => {
 const IngrQuantity = (props: { quantity: number, unit: string | undefined }) => {
     const { quantity, unit } = props;
 
-    if (unit === undefined) return <Text style={styles.text}>{quantity}</Text>
+    if (unit === undefined) return <Text style={styles.text}>{quantity.toFixed(2)}</Text>
 
     if (unit !== 'p') {
-        return <Text style={styles.text}>{quantity + ' ' + unit}</Text>
+        return <Text style={styles.text}>{quantity.toFixed(2) + ' ' + unit}</Text>
     } else {
-        return <Text style={styles.text}>{quantity}</Text>
+        return <Text style={styles.text}>{quantity.toFixed(2)}</Text>
     }
 }
 

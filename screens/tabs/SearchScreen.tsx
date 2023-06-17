@@ -55,10 +55,10 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         padding: 5,
         paddingLeft: 10,
-        marginBottom: 10,
+        marginTop: 5,
     },
     TextInput: {
-        fontSize: 15,
+        fontSize: 20,
         placeholderTextColor: 'grey'
     },
 });

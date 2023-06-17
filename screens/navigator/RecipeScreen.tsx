@@ -47,11 +47,10 @@ export default function RecipeScreen({ route, navigation }: RootStackScreenProps
         <View style={{ marginVertical: 20 }} >
           <Text style={styles.title}>{recipe.name}</Text>
         </View>
-        <View style={styles.separator} />
 
         <View style={styles.multipleRow}>
           <RowView>
-            <Text style={styles.textBlack}>{'💸 Budget: ' + (recipe.cost * personsNnumber).toFixed(2) + '€'}</Text>
+            <Text style={styles.textBlack}>{'💸 Budget: ' + ((recipe.cost / 2) * personsNnumber).toFixed(2) + '€'}</Text>
           </RowView>
 
           <RowView>
@@ -78,6 +77,9 @@ export default function RecipeScreen({ route, navigation }: RootStackScreenProps
         <View style={styles.viewIngredients}>
           <View style={{ flexDirection: 'row', marginVertical: 20, alignSelf: 'center' }}>
             <Text style={styles.subTitle}>Ingrédients</Text>
+          </View>
+          <View style={{ flexDirection: 'row', marginVertical: 10, alignSelf: 'center' }}>
+            <Text style={styles.subTitle2}>Nombre de popotes</Text>
             <PersonsNumber personsNumber={personsNnumber} setPersonsNumber={setPersonsNumber} />
           </View>
           <Ingredients ingredients={recipe.ingredients} personsNumber={personsNnumber} />
@@ -153,8 +155,8 @@ const styles = StyleSheet.create({
     height: Layout.window.height / 2
   },
   title: {  // titre de la recette
-    fontSize: 30,
-    fontFamily: 'Zector',
+    fontSize: 32,
+    fontFamily: 'Garet',
     textTransform: 'capitalize',
     marginLeft: 20,
     color: Colors.darkGreen,
@@ -168,7 +170,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   subTitle: {  // sous-titre ingrédients et étapes
-    fontSize: 31,
+    fontSize: 28,
+    fontFamily: 'Loves',
+    alignSelf: 'center',
+  },
+  subTitle2: {  // sous-titre ingrédients et étapes
+    fontSize: 24,
     fontFamily: 'Loves',
     alignSelf: 'center',
   },

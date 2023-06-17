@@ -1,5 +1,5 @@
 
 export default {
-    headerProfil: 30,
+    headerProfil: 40,
     ProfilePhoto: 200,
 };
