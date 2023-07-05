@@ -31,17 +31,17 @@ export default function AccountScreen({ route, navigation }: RootStackScreenProp
         <View style={{ alignItems: 'center' }}>
           <Text style={styles.title}>Vous n'êtes pas connecté</Text>
           <ButtonView onPress={() => signInWithGoogleAsync()} disabled={buttonDisabled}>
-            <Text style={styles.buttonText}>Connection avec google</Text>
+            <Text style={styles.buttonText}>Connexion avec google</Text>
           </ButtonView>
           <ButtonView onPress={() => signOut(auth)}>
-            <Text style={styles.buttonText}>Deconnection</Text>
+            <Text style={styles.buttonText}>Deconnexion</Text>
           </ButtonView>
         </View>
         :
         <View style={{ alignItems: 'center' }}>
           <Text style={styles.title}>{user.displayName}</Text>
           <ButtonView onPress={() => signOut(auth)}>
-            <Text style={styles.buttonText}>Deconnection</Text>
+            <Text style={styles.buttonText}>Deconnexion</Text>
           </ButtonView>
         </View>}
       <ReturnButton navigation={navigation} />

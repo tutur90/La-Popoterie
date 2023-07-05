@@ -64,6 +64,7 @@ export type RootStackParamList = {
   Recipe: { record: Recipe };
   Welcome: undefined;
   Info: undefined;
+  Recettes: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> = NativeStackScreenProps<

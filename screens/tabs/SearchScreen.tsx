@@ -19,16 +19,16 @@ const SearchScreen = ({ navigation }: RootTabScreenProps<'Recherche'>) => {
 
     return (
         <View style={styles.container}>
-
+            <SearchList list={results} />
             <View style={styles.inputView}>
                 <TextInput
                     style={styles.TextInput}
                     value={searchText}
                     onChangeText={setSearchText}
-                    placeholder="Rechercher un élément"
+                    placeholder="Rechercher une recette ou un ingrédient"
                 />
             </View>
-            <SearchList list={results} />
+
         </View>
     )
 }
@@ -38,8 +38,7 @@ export default SearchScreen;
 const styles = StyleSheet.create({
     container: {
         alignItem: 'center',
-        paddingBottom: 10,
-        backgroundColor: 'transparent',
+        flex: 1,
     },
     image: {
         height: 60,
@@ -51,14 +50,19 @@ const styles = StyleSheet.create({
         fontSize: 15,
     },
     inputView: {
-        borderRadius: 25,
+        borderRadius: 15,
         borderWidth: 1,
         padding: 5,
         paddingLeft: 10,
-        marginTop: 5,
+        marginVertical: 10,
+        // backgroundColor: 'transparent',
+        position: 'absolute',
+        width: '90%',
+        alignSelf: 'center',
+
     },
     TextInput: {
-        fontSize: 20,
+        fontSize: 16,
         placeholderTextColor: 'grey'
     },
 });

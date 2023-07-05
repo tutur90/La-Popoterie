@@ -11,24 +11,32 @@ const SearchList = (props: { list: Recipe[] }) => {
     return (
         <FlatList
             data={list}
+            contentContainerStyle={{
+                paddingBottom: 30,
+                paddingTop: 60,
+            }}
+
             renderItem={({ item, index }) =>
-                <TouchableOpacity
-                    key={index}
-                    onPress={() => {
-                        navigation.navigate('Recipe', { record: item })
-                    }}
-                >
-                    <View style={styles.itemView}>
-                        <Image style={styles.image} source={{ uri: item.imagePath }} />
-                        <View style={styles.titleView} >
-                            <Text style={styles.subTitle}>{item.name} </Text>
-                            <View style={styles.textView} >
-                                <Text style={styles.text}>{'Temps⏳: ' + item.time + ' min   '} </Text>
-                                <Text style={styles.text}>{'Budget💸: ' + item.cost.toFixed(2) + ' €'} </Text>
+                <View style={styles.shadow}>
+                    <TouchableOpacity
+                        key={index}
+                        onPress={() => {
+                            navigation.navigate('Recipe', { record: item })
+                        }}
+
+                    >
+                        <View style={styles.itemView}>
+                            <Image style={styles.image} source={{ uri: item.imagePath }} />
+                            <View style={styles.titleView} >
+                                <Text style={styles.subTitle}>{item.name} </Text>
+                                <View style={styles.textView} >
+                                    <Text style={styles.text}>{'Temps⏳: ' + item.time + ' min   '} </Text>
+                                    <Text style={styles.text}>{'Budget💸: ' + item.cost.toFixed(2) + ' €'} </Text>
+                                </View>
                             </View>
                         </View>
-                    </View>
-                </TouchableOpacity>
+                    </TouchableOpacity>
+                </View>
             }
         />
     )
@@ -58,19 +66,12 @@ const styles = StyleSheet.create({
 
     },
     itemView: {
-        marginHorizontal: 10,
-        marginVertical: 5,
         borderRadius: 20,
         padding: 10,
         flexDirection: 'row',
         alignItems: 'center',
         flexWrap: 'wrap',
         backgroundColor: Colors.darkGreen,
-        shadowOpacity: 0.2,
-        shadowRadius: 3,
-        shadowColor: 'black',
-        shadowOffset: { height: 5, width: 5 },
-        elevation: 5,
     },
     titleView: {
         flex: 1,
@@ -83,5 +84,17 @@ const styles = StyleSheet.create({
         backgroundColor: 'transparent',
         flexDirection: 'row',
         marginTop: 5,
+    }
+    ,
+    shadow: {
+        marginHorizontal: 10,
+        marginVertical: 5,
+        borderRadius: 20,
+
+        shadowOpacity: 0.2,
+        shadowRadius: 3,
+        shadowColor: 'black',
+        shadowOffset: { height: 5, width: 5 },
+        elevation: 5,
     }
 });

@@ -58,7 +58,7 @@ export default function InfoScreen({ navigation }: RootStackScreenProps<'Info'>)
               Le symbole «🌱» signifie que la recette convient à un régime végétalien. {"\n"}
               Le symbole «🥛» signifie que la recette convient à un régime sans lactose.{"\n"}
               Le symbole «🌾» signifie que la recette convient à un régime sans gluten.{"\n"}
-              Par défaut toutes nos recettes conviennent au régime végétarien.{"\n"}
+              Par défaut toutes nos recettes conviennent au régime végétarien "🥗".{"\n"}
               {"\n"}
               Le symbole «🌷» signifie que la recette contient des ingrédients dont il est préférable de consommer au printemps.{"\n"}
               Le symbole «☀️» signifie que la recette contient des ingrédients dont il est préférable de consommer en été.{"\n"}
@@ -102,10 +102,11 @@ export default function InfoScreen({ navigation }: RootStackScreenProps<'Info'>)
 
             <Text style={styles.subTitle3}> Fondée par: </Text>
             <Text style={styles.subTitle3}>Cassandre BELLENGUEZ</Text>
-            <Text style={styles.subTitle3}>et</Text>
+            <View style={styles.separator} />
+            <Text style={styles.subTitle3}>Développement de l'Application:</Text>
             <Text style={styles.subTitle3}> Arthur GARON</Text>
             <View style={styles.separator} />
-            <Text style={styles.subTitle3}>{'Conception du graphisme: '}</Text>
+            <Text style={styles.subTitle3}>Conception du graphisme:</Text>
             <Text style={styles.subTitle3}>Maxence BELLENGUEZ</Text>
             <View style={styles.separator} />
           </View>

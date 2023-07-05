@@ -5,7 +5,7 @@ import { GoogleAuthProvider, signInWithCredential, signInAnonymously } from 'fir
 import { auth } from './Firebase';
 import clientId from '../.env/GoogleAuth';
 
-var webBro = WebBrowser.maybeCompleteAuthSession();
+WebBrowser.maybeCompleteAuthSession();
 
 export const googleConnection = (setDisabled: (disable: boolean) => void) => {
     const [request, response, promptAsync] = Google.useIdTokenAuthRequest({
@@ -20,7 +20,6 @@ export const googleConnection = (setDisabled: (disable: boolean) => void) => {
             const credential = GoogleAuthProvider.credential(id_token);
             signInWithCredential(auth, credential);
         }
-        console.log(webBro)
         setDisabled(!request || response?.type === 'success');
     }, [response, request]);
 
@@ -30,11 +29,9 @@ export const googleConnection = (setDisabled: (disable: boolean) => void) => {
             if (result.type === 'success') {
                 return result.params.id_token;
             } else {
-                alert(result.type)
                 return { cancelled: true };
             }
         } catch (e) {
-            alert(e)
             return { error: true };
         }
     };

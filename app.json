@@ -19,17 +19,17 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.popote.LaPopoterie"
+      "bundleIdentifier": "com.popoters.lapopoterie"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.popote.LaPopoterie"
+      "package": "com.popoters.lapopoterie"
     },
     "web": {
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/icon.png"
     },
     "extra": {
       "eas": {

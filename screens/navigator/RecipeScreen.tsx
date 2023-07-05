@@ -61,7 +61,7 @@ export default function RecipeScreen({ route, navigation }: RootStackScreenProps
             <Text style={styles.textBlack}>{'Saison: '}</Text>
             {recipe.season && recipe.season.length > 0 ?
               recipe.season.map((s: season, index: number) => <Text style={styles.textBlack} key={index}>{seasonIcon(s)}</Text>) :
-              <Text style={styles.textBlack}>{'Toutes'}</Text>
+              <Text style={styles.textBlack}>{'☀️❄️🍂🌷'}</Text>
             }
           </RowView>
           <RowView>
@@ -69,7 +69,7 @@ export default function RecipeScreen({ route, navigation }: RootStackScreenProps
 
             {recipe.diet && recipe.diet.length > 0 ?
               recipe.diet.map((d: diet, index: number) => <Text style={styles.textBlack} key={index}>{dietIcon(d)}</Text>) :
-              <Text style={styles.textBlack}>{'végétarien'}</Text>
+              <Text style={styles.textBlack}>{'🥗'}</Text>
             }
           </RowView>
         </View>
